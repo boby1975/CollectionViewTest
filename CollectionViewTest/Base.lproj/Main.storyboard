@@ -36,22 +36,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="trackName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVk-Wg-0rg">
-                                                    <rect key="frame" x="13" y="6" width="84" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="trackName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVk-Wg-0rg">
+                                                    <rect key="frame" x="6" y="8" width="331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="artistName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUP-CR-xtv">
-                                                    <rect key="frame" x="13" y="35" width="85" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artistName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUP-CR-xtv">
+                                                    <rect key="frame" x="6" y="33" width="331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="aUP-CR-xtv" secondAttribute="trailing" constant="6" id="6nQ-54-TTh"/>
+                                            <constraint firstItem="aUP-CR-xtv" firstAttribute="top" secondItem="tVk-Wg-0rg" secondAttribute="bottom" constant="4" id="7HB-CJ-vdp"/>
+                                            <constraint firstItem="aUP-CR-xtv" firstAttribute="leading" secondItem="0w8-UH-izL" secondAttribute="leading" constant="6" id="9nK-vH-bl3"/>
+                                            <constraint firstItem="tVk-Wg-0rg" firstAttribute="top" secondItem="0w8-UH-izL" secondAttribute="top" constant="8" id="Knh-bq-T0v"/>
+                                            <constraint firstItem="tVk-Wg-0rg" firstAttribute="leading" secondItem="0w8-UH-izL" secondAttribute="leading" constant="6" id="Q7n-Oz-c0j"/>
+                                            <constraint firstAttribute="trailing" secondItem="tVk-Wg-0rg" secondAttribute="trailing" constant="6" id="aeR-Qe-f8U"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="artistName" destination="aUP-CR-xtv" id="wLg-eM-D5f"/>
                                             <outlet property="trackName" destination="tVk-Wg-0rg" id="Cas-QZ-adz"/>

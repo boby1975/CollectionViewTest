@@ -11,7 +11,7 @@ import UIKit
 class SongCell: UICollectionViewCell {
 
     @IBOutlet weak var trackName: UILabel!
-    
     @IBOutlet weak var artistName: UILabel!
+    
     
 }

@@ -16,6 +16,7 @@
 		C8B8BB8F22159436007C707A /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8BB8E22159436007C707A /* SongCell.swift */; };
 		C8B8BB9122159ABC007C707A /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8BB9022159ABC007C707A /* SongDetailViewController.swift */; };
 		C8B8BB942215A286007C707A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8BB932215A286007C707A /* Song.swift */; };
+		C8B8BB972215B8A0007C707A /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8BB962215B8A0007C707A /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		C8B8BB8E22159436007C707A /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		C8B8BB9022159ABC007C707A /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
 		C8B8BB932215A286007C707A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		C8B8BB962215B8A0007C707A /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +85,13 @@
 		C8B8BB6C22158EBC007C707A /* CollectionViewTest */ = {
 			isa = PBXGroup;
 			children = (
-				C8B8BB922215A25A007C707A /* Model */,
-				C8B8BB8D22159417007C707A /* View */,
 				C8B8BB6D22158EBC007C707A /* AppDelegate.swift */,
 				C8B8BB6F22158EBC007C707A /* SongsListViewController.swift */,
 				C8B8BB9022159ABC007C707A /* SongDetailViewController.swift */,
 				C8B8BB7122158EBC007C707A /* Main.storyboard */,
+				C8B8BB8D22159417007C707A /* View */,
+				C8B8BB922215A25A007C707A /* Model */,
+				C8B8BB952215B809007C707A /* Networking */,
 				C8B8BB7422158ECB007C707A /* Assets.xcassets */,
 				C8B8BB7622158ECB007C707A /* LaunchScreen.storyboard */,
 				C8B8BB7922158ECB007C707A /* Info.plist */,
@@ -119,6 +122,14 @@
 				C8B8BB932215A286007C707A /* Song.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C8B8BB952215B809007C707A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C8B8BB962215B8A0007C707A /* QueryService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 				C8B8BB8F22159436007C707A /* SongCell.swift in Sources */,
 				C8B8BB9122159ABC007C707A /* SongDetailViewController.swift in Sources */,
 				C8B8BB6E22158EBC007C707A /* AppDelegate.swift in Sources */,
+				C8B8BB972215B8A0007C707A /* QueryService.swift in Sources */,
 				C8B8BB942215A286007C707A /* Song.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

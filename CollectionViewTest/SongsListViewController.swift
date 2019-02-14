@@ -12,7 +12,8 @@ class SongsListViewController: UIViewController {
 
     @IBOutlet weak var songsListCollectionView: UICollectionView!
     var songsList: [Song] = []
-    var selectedCell: Int!
+    let queryService = QueryService()
+    let searchTerm = "jack+white"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +22,16 @@ class SongsListViewController: UIViewController {
         songsListCollectionView.dataSource = self
         songsListCollectionView.showsVerticalScrollIndicator = false
         
-        //for test
-        songsList.removeAll()
-        songsList.append(Song(trackName: "track 1", artistName: "artist 1", collectionName: "collection 1", primaryGendreName: "Gendre 1"))
-        songsList.append(Song(trackName: "track 2", artistName: "artist 2", collectionName: "collection 2", primaryGendreName: "Gendre 2"))
-        songsList.append(Song(trackName: "track 3", artistName: "artist 3", collectionName: "collection 3", primaryGendreName: "Gendre 3"))
-        songsList.append(Song(trackName: "track 4", artistName: "artist 4", collectionName: "collection 4", primaryGendreName: "Gendre 4"))
-        songsList.append(Song(trackName: "track 5", artistName: "artist 5", collectionName: "collection 5", primaryGendreName: "Gendre 5"))
-        
+        getSongs()
     }
 
-    
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let flowLayout = self.songsListCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.itemSize = CGSize(width: self.songsListCollectionView.bounds.width, height: 60)
+        }
+    }
     
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,8 +41,9 @@ class SongsListViewController: UIViewController {
                 print ("fromSongListToSongDetailSegue")
             
                 if let navigationController = segue.destination as? UINavigationController,
-                    let createViewController = navigationController.viewControllers.first as? SongDetailViewController {
-                    createViewController.song = songsList[selectedCell]
+                    let createViewController = navigationController.viewControllers.first as? SongDetailViewController,
+                    let selectedItem = songsListCollectionView.indexPathsForSelectedItems?.first {
+                    createViewController.song = songsList[selectedItem.item]
                 }
             
             default:
@@ -51,6 +51,27 @@ class SongsListViewController: UIViewController {
             break
         }
     }
+    
+    //MARK: Private Query Data
+    fileprivate func getSongs(){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        queryService.getSongSearchResults(searchTerm: searchTerm) { results, errorMessage in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if let results = results {
+                self.songsList = results
+                self.songsListCollectionView.reloadData()
+                self.songsListCollectionView.setContentOffset(CGPoint.zero, animated: false)
+                
+                if self.songsList.count > 0 {
+                    print ("result find songs ok")
+                } else {
+                    print ("find songs no records")
+                }
+            }
+            if !errorMessage.isEmpty { print("find songs error: " + errorMessage) }
+        }
+    }
+
 }
 
 
@@ -76,8 +97,8 @@ extension SongsListViewController: UICollectionViewDataSource {
 extension SongsListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCell = indexPath.row
-        print("selected cell: \(String(describing: selectedCell))")
+        let selectedCell = indexPath.row
+        print("selected cell: \(selectedCell)")
         performSegue(withIdentifier: "fromSongListToSongDetailSegue", sender: self)
     }
 }

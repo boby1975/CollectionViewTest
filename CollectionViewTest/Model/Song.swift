@@ -21,4 +21,5 @@ class Song {
         self.collectionName = collectionName
         self.primaryGendreName = primaryGendreName
     }
+    
 }
