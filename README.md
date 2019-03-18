@@ -1,4 +1,4 @@
-Test result
+Sample of test result
 
 1.Make the request to download list of songs from the following link: “https://itunes.apple.com/search?term=jack+white&limit=10”
 
